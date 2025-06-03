@@ -1,0 +1,24 @@
+name: Test Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Say hello
+        run: echo "Hello from GitHub Actions!"
+
+      - name: Simulate some processing
+        run: |
+          echo "This is a test job triggered by ${{ github.event_name }} event"
+
